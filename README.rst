@@ -15,10 +15,17 @@ Email user
 
 Setup
 =====
+
+Set up an Ubuntu VM on Azure and a storage account. You'll want to open TCP
+ports endpoints 25003-25006 on the VM and enable public sharing on the storage
+account container. A config file is included for vsftp which can be modified
+and installed in `/etc/vsftpd.conf`
+
 .. code-block:: shell:::
 
     apt-get install vsftpd libav-tools inotify-tools
     mkdir -p /srv/ftp/in /srv/ftp/out
+
 
 Running
 =======
@@ -36,4 +43,4 @@ Kill with:
 
 .. code-block:: shell:::
 
-    killall trigger.log
+    killall trigger.sh
