@@ -12,6 +12,9 @@ Flow
 FTP -> iNotify -> Detect media type -> Watermark -> Upload to Blob storage ->
 Email user
 
+.. image::
+https://github.com/schallis/azure-watermarking-service/raw/master/flow.png
+
 Setup
 =====
 .. code-block:: shell:::
