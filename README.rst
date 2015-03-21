@@ -4,16 +4,14 @@ Azure Media Watermarking Service
 
 :Info: A simple concept service to visibly watermark media uploaded via FTP and serve it from Azure Blob storage.
 :Author: Steven Challis <http://schallis.com>
-:Requires: Ubuntu, vsftpd, libav-tools, inotify-tools, Azure account,
-python-azure
+:Requires: Ubuntu, vsftpd, libav-tools, inotify-tools, Azure account, python-azure
 
 Flow
 ====
 FTP -> iNotify -> Detect media type -> Watermark -> Upload to Blob storage ->
 Email user
 
-.. image::
-https://github.com/schallis/azure-watermarking-service/raw/master/flow.png
+.. image:: https://github.com/schallis/azure-watermarking-service/raw/master/flow.png
 
 Setup
 =====
