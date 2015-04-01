@@ -25,6 +25,10 @@ and installed in `/etc/vsftpd.conf`
 
     apt-get install vsftpd libav-tools inotify-tools
     mkdir -p /srv/ftp/in /srv/ftp/out
+    # install Upstart script
+    sudo mv trigger.conf /etc/init/
+    sudo chmod 644 /etc/init/trigger.conf
+    sudo start trigger
 
 
 Running
@@ -33,14 +37,12 @@ Daemonize trigger process and log with:
 
 .. code-block:: shell:::
 
-    export AZURE_STORAGE_ACCOUNT=<account>
-    export AZURE_STORAGE_ACCESS_KEY='<key>'
-    ./trigger.sh > /var/log/trigger.log 2>&1 &
-    tailf /var/log/trigger.log
+    sudo start trigger
+    tailf /var/log/syslog
 
 
-Kill with:
+Getting metadata field
+======================
 
 .. code-block:: shell:::
-
-    killall trigger.sh
+    xsltproc transform.xsl <metadata.xml> | xpath -q -e '//<field_name>/text()'
