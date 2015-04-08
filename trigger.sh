@@ -23,14 +23,20 @@ inotifywait -qme close_write -m --format %f $INDIR/ | while read filename; do
                             shadowx=3:shadowy=3:shadowcolor=black" \
               "$OUTDIR/$filename";
               log "Uploading..."
-              url=`python upload.py "$filename"`;
+              url=`python upload.py "$filename"`
               log "Uploaded. Available at" $url
             ;;
         'application/pdf')
             log $filename "is a PDF", $mime
+            log "Doing nothing."
+            ;;
+        'image/jpeg')
+            log $filename "is a JPEG", $mime
+            log "Doing nothing."
             ;;
         *)
-            log $filename "not recognized", $mime
+            log $filename "has no action defined", $mime
+            log "Doing nothing."
             ;;
     esac
 done
